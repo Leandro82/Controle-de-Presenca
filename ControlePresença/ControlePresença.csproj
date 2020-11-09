@@ -1,0 +1,775 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0141AA7F-573B-4F79-8C4C-F1EC02506279}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ControlePresença</RootNamespace>
+    <AssemblyName>ControlePresença</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>H:\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySqlBackup, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Leandro\Desktop\MySqlBackup.dll</HintPath>
+    </Reference>
+    <Reference Include="Neurotec.Biometrics.Nffv">
+      <HintPath>C:\FreeFingerprintVerificationSDK\bin\Win32_x86\Neurotec.Biometrics.Nffv.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>H:\Office.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Veridis.Biometric">
+      <HintPath>C:\Program Files (x86)\Veridis\Biometric SDK\bin\Veridis.Biometric.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Ano.cs" />
+    <Compile Include="Classes\AuxClas.cs" />
+    <Compile Include="Classes\Conecta.cs" />
+    <Compile Include="Classes\ConectaAgenda.cs" />
+    <Compile Include="Classes\ConectaInscritos.cs" />
+    <Compile Include="Classes\ConectaUsuario.cs" />
+    <Compile Include="Classes\ConectaDatasEscalada.cs" />
+    <Compile Include="Classes\ConectaEquipe.cs" />
+    <Compile Include="Classes\Cracha.cs" />
+    <Compile Include="Classes\DatasEscalada.cs" />
+    <Compile Include="Classes\Equipe.cs" />
+    <Compile Include="Classes\ConectaAno.cs" />
+    <Compile Include="Classes\ConectaEleicao.cs" />
+    <Compile Include="Classes\Eleicao.cs" />
+    <Compile Include="escaladaDataSet.cs">
+      <DependentUpon>escaladaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="escaladaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>escaladaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="escaladaDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>escaladaDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="escaladaDataSet2.cs">
+      <DependentUpon>escaladaDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="escaladaDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>escaladaDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="escaladaDataSet3.cs">
+      <DependentUpon>escaladaDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="escaladaDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>escaladaDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmAgenda.Designer.cs">
+      <DependentUpon>frmAgenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmAviso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmAviso.Designer.cs">
+      <DependentUpon>frmAviso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmBio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmBio.Designer.cs">
+      <DependentUpon>frmBio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmCadAlpinistas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmCadAlpinistas.Designer.cs">
+      <DependentUpon>frmCadAlpinistas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmCadUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmCadUsuario.Designer.cs">
+      <DependentUpon>frmCadUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmChamada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmChamada.Designer.cs">
+      <DependentUpon>frmChamada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmCorrigir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmCorrigir.Designer.cs">
+      <DependentUpon>frmCorrigir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmDatas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmDatas.Designer.cs">
+      <DependentUpon>frmDatas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmDecisao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmDecisao.Designer.cs">
+      <DependentUpon>frmDecisao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmInativos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmInativos.Designer.cs">
+      <DependentUpon>frmInativos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmInicio.Designer.cs">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmInscritos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmInscritos.Designer.cs">
+      <DependentUpon>frmInscritos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmLoad.Designer.cs">
+      <DependentUpon>frmLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmMensagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmMensagem.Designer.cs">
+      <DependentUpon>frmMensagem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmPeqUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmPeqUsuario.Designer.cs">
+      <DependentUpon>frmPeqUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmPorcentagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmPorcentagem.Designer.cs">
+      <DependentUpon>frmPorcentagem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmRelAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmRelAgenda.Designer.cs">
+      <DependentUpon>frmRelAgenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmSortMeninasOcz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmSortMeninasOcz.Designer.cs">
+      <DependentUpon>frmSortMeninasOcz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmVerifica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmVerifica.Designer.cs">
+      <DependentUpon>frmVerifica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Inscritos.cs" />
+    <Compile Include="Classes\Program.cs" />
+    <Compile Include="Formulários\frmDatasEscalada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmDatasEscalada.Designer.cs">
+      <DependentUpon>frmDatasEscalada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmEquipeTrabalho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmEquipeTrabalho.Designer.cs">
+      <DependentUpon>frmEquipeTrabalho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmSorteados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmSorteados.Designer.cs">
+      <DependentUpon>frmSorteados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmAbreviarNomes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmAbreviarNomes.Designer.cs">
+      <DependentUpon>frmAbreviarNomes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmAlpNaoCadastrado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmAlpNaoCadastrado.Designer.cs">
+      <DependentUpon>frmAlpNaoCadastrado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmCrachaPeito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmCrachaPeito.Designer.cs">
+      <DependentUpon>frmCrachaPeito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmCrachaQuarto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmCrachaQuarto.Designer.cs">
+      <DependentUpon>frmCrachaQuarto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmDividirGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmDividirGrupos.Designer.cs">
+      <DependentUpon>frmDividirGrupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmListaCamisetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmListaCamisetas.Designer.cs">
+      <DependentUpon>frmListaCamisetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmListaPag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmListaPag.Designer.cs">
+      <DependentUpon>frmListaPag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmListaPresenca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmListaPresenca.Designer.cs">
+      <DependentUpon>frmListaPresenca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmListaPresençaPais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmListaPresençaPais.Designer.cs">
+      <DependentUpon>frmListaPresençaPais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmPagEquipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmPagEquipe.Designer.cs">
+      <DependentUpon>frmPagEquipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmAtDadosEquipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmAtDadosEquipe.Designer.cs">
+      <DependentUpon>frmAtDadosEquipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmAtDadosNovos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmAtDadosNovos.Designer.cs">
+      <DependentUpon>frmAtDadosNovos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmCadPres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmCadPres.Designer.cs">
+      <DependentUpon>frmCadPres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmConfDadosEquipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmConfDadosEquipe.Designer.cs">
+      <DependentUpon>frmConfDadosEquipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmConfNovos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmConfNovos.Designer.cs">
+      <DependentUpon>frmConfNovos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmLembrete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmLembrete.Designer.cs">
+      <DependentUpon>frmLembrete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmNaoInscrito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmNaoInscrito.Designer.cs">
+      <DependentUpon>frmNaoInscrito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmRelEquipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmRelEquipe.Designer.cs">
+      <DependentUpon>frmRelEquipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmRelGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmRelGrupos.Designer.cs">
+      <DependentUpon>frmRelGrupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmCarregando.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmCarregando.Designer.cs">
+      <DependentUpon>frmCarregando.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmAlterarCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmAlterarCadastro.Designer.cs">
+      <DependentUpon>frmAlterarCadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmEnvelopeEquipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmEnvelopeEquipe.Designer.cs">
+      <DependentUpon>frmEnvelopeEquipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmEnvelopeNovos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmEnvelopeNovos.Designer.cs">
+      <DependentUpon>frmEnvelopeNovos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmRelEnvEquipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmRelEnvEquipe.Designer.cs">
+      <DependentUpon>frmRelEnvEquipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\frmRelEnvNovos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\frmRelEnvNovos.Designer.cs">
+      <DependentUpon>frmRelEnvNovos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Classes\StringConexao.cs" />
+    <Compile Include="Classes\Usuario.cs" />
+    <Compile Include="Classes\Variavel.cs" />
+    <EmbeddedResource Include="Formulários\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmAgenda.resx">
+      <DependentUpon>frmAgenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmAviso.resx">
+      <DependentUpon>frmAviso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmBio.resx">
+      <DependentUpon>frmBio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmCadAlpinistas.resx">
+      <DependentUpon>frmCadAlpinistas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmCadUsuario.resx">
+      <DependentUpon>frmCadUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmChamada.resx">
+      <DependentUpon>frmChamada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmCorrigir.resx">
+      <DependentUpon>frmCorrigir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmDatas.resx">
+      <DependentUpon>frmDatas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmDecisao.resx">
+      <DependentUpon>frmDecisao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmInativos.resx">
+      <DependentUpon>frmInativos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmInicio.resx">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmInscritos.resx">
+      <DependentUpon>frmInscritos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmLoad.resx">
+      <DependentUpon>frmLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmMensagem.resx">
+      <DependentUpon>frmMensagem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmPeqUsuario.resx">
+      <DependentUpon>frmPeqUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmPorcentagem.resx">
+      <DependentUpon>frmPorcentagem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmRelAgenda.resx">
+      <DependentUpon>frmRelAgenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmSortMeninasOcz.resx">
+      <DependentUpon>frmSortMeninasOcz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmVerifica.resx">
+      <DependentUpon>frmVerifica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmDatasEscalada.resx">
+      <DependentUpon>frmDatasEscalada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmEquipeTrabalho.resx">
+      <DependentUpon>frmEquipeTrabalho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmSorteados.resx">
+      <DependentUpon>frmSorteados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmAbreviarNomes.resx">
+      <DependentUpon>frmAbreviarNomes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmAlpNaoCadastrado.resx">
+      <DependentUpon>frmAlpNaoCadastrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmCrachaPeito.resx">
+      <DependentUpon>frmCrachaPeito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmCrachaQuarto.resx">
+      <DependentUpon>frmCrachaQuarto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmDividirGrupos.resx">
+      <DependentUpon>frmDividirGrupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmListaCamisetas.resx">
+      <DependentUpon>frmListaCamisetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmListaPag.resx">
+      <DependentUpon>frmListaPag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmListaPresenca.resx">
+      <DependentUpon>frmListaPresenca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmListaPresençaPais.resx">
+      <DependentUpon>frmListaPresençaPais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmPagEquipe.resx">
+      <DependentUpon>frmPagEquipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmAtDadosEquipe.resx">
+      <DependentUpon>frmAtDadosEquipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmAtDadosNovos.resx">
+      <DependentUpon>frmAtDadosNovos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmCadPres.resx">
+      <DependentUpon>frmCadPres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmConfDadosEquipe.resx">
+      <DependentUpon>frmConfDadosEquipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmConfNovos.resx">
+      <DependentUpon>frmConfNovos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmLembrete.resx">
+      <DependentUpon>frmLembrete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmNaoInscrito.resx">
+      <DependentUpon>frmNaoInscrito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmRelEquipe.resx">
+      <DependentUpon>frmRelEquipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmRelGrupos.resx">
+      <DependentUpon>frmRelGrupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmCarregando.resx">
+      <DependentUpon>frmCarregando.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmAlterarCadastro.resx">
+      <DependentUpon>frmAlterarCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmEnvelopeEquipe.resx">
+      <DependentUpon>frmEnvelopeEquipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmEnvelopeNovos.resx">
+      <DependentUpon>frmEnvelopeNovos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmRelEnvEquipe.resx">
+      <DependentUpon>frmRelEnvEquipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\frmRelEnvNovos.resx">
+      <DependentUpon>frmRelEnvNovos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report10.rdlc" />
+    <EmbeddedResource Include="Report11.rdlc" />
+    <EmbeddedResource Include="Report12.rdlc" />
+    <EmbeddedResource Include="Report13.rdlc" />
+    <EmbeddedResource Include="Report14.rdlc" />
+    <EmbeddedResource Include="Report15.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="Report4.rdlc" />
+    <EmbeddedResource Include="Report5.rdlc" />
+    <EmbeddedResource Include="Report6.rdlc" />
+    <EmbeddedResource Include="Report7.rdlc" />
+    <EmbeddedResource Include="Report8.rdlc" />
+    <EmbeddedResource Include="Report9.rdlc" />
+    <None Include="Classes\app.config" />
+    <None Include="escaladaDataSet.xsc">
+      <DependentUpon>escaladaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="escaladaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>escaladaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="escaladaDataSet.xss">
+      <DependentUpon>escaladaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="escaladaDataSet1.xsc">
+      <DependentUpon>escaladaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="escaladaDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>escaladaDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="escaladaDataSet1.xss">
+      <DependentUpon>escaladaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="escaladaDataSet2.xsc">
+      <DependentUpon>escaladaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="escaladaDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>escaladaDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="escaladaDataSet2.xss">
+      <DependentUpon>escaladaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="escaladaDataSet3.xsc">
+      <DependentUpon>escaladaDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="escaladaDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>escaladaDataSet3.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="escaladaDataSet3.xss">
+      <DependentUpon>escaladaDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ATLLib">
+      <Guid>{44EC0535-400F-11D0-9DCD-00A0C90391D3}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="DPFPDevXLib">
+      <Guid>{BCDEF2D4-F788-4A38-B0C2-C97B3F9FB791}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="DPFPEngXLib">
+      <Guid>{A9EFB3F6-A8C8-4684-841E-4330973057C6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="DPFPShrXLib">
+      <Guid>{B8FAC44B-A9C5-478E-A9BF-566419996CAE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="FlexCodeSDK">
+      <Guid>{09275F52-48D5-4EA0-9D30-CE4AA8DBDDA7}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="MSDASC">
+      <Guid>{2206CEB0-19C1-11D1-89E0-00C04FD7A829}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1482336669_data_transport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1482336696_basic-data.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1483719055_Excel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1483720887_Log Out.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sair.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Excel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendario.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cadeado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Escalada2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logo2.ico" />
+    <None Include="Resources\Loading.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
